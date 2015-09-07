@@ -1,4 +1,4 @@
-//利用node.js返回静态页面的方法：
+(一)//利用node.js返回静态页面的方法：
 //1、将html代码与JavaScript代码写在一起进行请求
 	server=http.createServer(function(req,res){
 		res.writeHead(200,{'content-Type':'text/html'});
@@ -23,3 +23,13 @@
 		})
 	})
 	
+（二）、去除字符串两端的空格
+function trim(str){ //删除左右两端的空格
+　 return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+function ltrim(str){ //删除左边的空格
+　return str.replace(/(^\s*)/g,"");
+}
+function rtrim(str){ //删除右边的空格
+　return str.replace(/(\s*$)/g,"");
+}
