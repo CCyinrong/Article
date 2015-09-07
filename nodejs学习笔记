@@ -11,3 +11,15 @@
 			server=require('http').createServer(app);
 	app.use('/',express.static(__dirname + '/www'));
 	server.listen(80);
+//通过socket.emit()激发一个事件，socket.on()侦听和处理事件
+	var socket=io.connect(),
+			button=document.getElementById('sendBtn');
+	button.onclick=function(){
+		socket.emit('foo','hello');
+	}
+	io.on('connection',function(socket){
+		socket.on('foo',function(data){
+			console.log(data);
+		})
+	})
+	
